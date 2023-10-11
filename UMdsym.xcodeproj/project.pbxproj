@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00CE4F92AD692E1000E8049 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00CE4F82AD692E1000E8049 /* Model.swift */; };
 		A06C4C2E2AD669A1007E8CD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C4C2D2AD669A1007E8CD6 /* AppDelegate.swift */; };
 		A06C4C302AD669A1007E8CD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06C4C2F2AD669A1007E8CD6 /* ViewController.swift */; };
 		A06C4C322AD669A2007E8CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06C4C312AD669A2007E8CD6 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A00CE4F82AD692E1000E8049 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A06C4C2A2AD669A1007E8CD6 /* UMdsym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMdsym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06C4C2D2AD669A1007E8CD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06C4C2F2AD669A1007E8CD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				A06C4C2D2AD669A1007E8CD6 /* AppDelegate.swift */,
 				A06C4C2F2AD669A1007E8CD6 /* ViewController.swift */,
+				A00CE4F82AD692E1000E8049 /* Model.swift */,
 				A06C4C312AD669A2007E8CD6 /* Assets.xcassets */,
 				A06C4C332AD669A2007E8CD6 /* Main.storyboard */,
 				A06C4C362AD669A2007E8CD6 /* UMdsym.entitlements */,
@@ -77,6 +80,8 @@
 			dependencies = (
 			);
 			name = UMdsym;
+			packageProductDependencies = (
+			);
 			productName = UMdsym;
 			productReference = A06C4C2A2AD669A1007E8CD6 /* UMdsym.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +110,8 @@
 				Base,
 			);
 			mainGroup = A06C4C212AD669A1007E8CD6;
+			packageReferences = (
+			);
 			productRefGroup = A06C4C2B2AD669A1007E8CD6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00CE4F92AD692E1000E8049 /* Model.swift in Sources */,
 				A06C4C302AD669A1007E8CD6 /* ViewController.swift in Sources */,
 				A06C4C2E2AD669A1007E8CD6 /* AppDelegate.swift in Sources */,
 			);
@@ -274,6 +282,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = UMdsym/UMdsym.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -301,6 +310,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = UMdsym/UMdsym.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

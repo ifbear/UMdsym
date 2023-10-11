@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="UMdsym" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +704,113 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="UMdsym" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="484" height="303"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pJe-c2-kef">
+                                <rect key="frame" x="30" y="267" width="38" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="版本：" id="QX0-pQ-rIY">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NLO-cG-MDc">
+                                <rect key="frame" x="88" y="264" width="96" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="4aB-Ea-uHx"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="3.1.6" drawsBackground="YES" id="UBm-17-lBr">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bly-3i-rPF">
+                                <rect key="frame" x="217" y="258" width="98" height="32"/>
+                                <buttonCell key="cell" type="push" title="选择dSYM" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATL-Xg-Mnb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectFile:" target="XfG-lQ-9wD" id="Py5-5Z-mpA"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NzB-SW-q89">
+                                <rect key="frame" x="341" y="258" width="61" height="32"/>
+                                <buttonCell key="cell" type="push" title="上传" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LkW-6a-KIo">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="upload:" target="XfG-lQ-9wD" id="6cb-KH-MgE"/>
+                                </connections>
+                            </button>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGN-Ol-drO">
+                                <rect key="frame" x="32" y="32" width="420" height="200"/>
+                                <clipView key="contentView" drawsBackground="NO" id="hbD-Dw-2QE">
+                                    <rect key="frame" x="0.0" y="0.0" width="405" height="200"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView wantsLayer="YES" importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" spellingCorrection="YES" smartInsertDelete="YES" id="URm-HE-MzJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="405" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="405" height="200"/>
+                                            <size key="maxSize" width="405" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment content="sassed ">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="insertionPointColor" name="textInsertionPointColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="fAH-8q-Pwl"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="chZ-9U-0Nf">
+                                    <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="5sN-u7-jKT">
+                                    <rect key="frame" x="405" y="0.0" width="15" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NzB-SW-q89" firstAttribute="leading" secondItem="bly-3i-rPF" secondAttribute="trailing" constant="40" id="77E-Iz-rfq"/>
+                            <constraint firstItem="pJe-c2-kef" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Aj7-L8-y0N"/>
+                            <constraint firstItem="NLO-cG-MDc" firstAttribute="leading" secondItem="pJe-c2-kef" secondAttribute="trailing" constant="22" id="Ggb-q8-jMS"/>
+                            <constraint firstItem="LGN-Ol-drO" firstAttribute="top" secondItem="NLO-cG-MDc" secondAttribute="bottom" constant="32" id="Kh2-iG-oUY"/>
+                            <constraint firstItem="NLO-cG-MDc" firstAttribute="centerY" secondItem="pJe-c2-kef" secondAttribute="centerY" id="SQl-Cc-Zwe"/>
+                            <constraint firstAttribute="bottom" secondItem="LGN-Ol-drO" secondAttribute="bottom" constant="32" id="X0v-Rt-Lk2"/>
+                            <constraint firstAttribute="trailing" secondItem="LGN-Ol-drO" secondAttribute="trailing" constant="32" id="nza-1I-CLE"/>
+                            <constraint firstItem="bly-3i-rPF" firstAttribute="centerY" secondItem="NLO-cG-MDc" secondAttribute="centerY" id="qH9-cv-6LZ"/>
+                            <constraint firstItem="bly-3i-rPF" firstAttribute="leading" secondItem="NLO-cG-MDc" secondAttribute="trailing" constant="40" id="wRG-yl-hsD"/>
+                            <constraint firstItem="NzB-SW-q89" firstAttribute="centerY" secondItem="bly-3i-rPF" secondAttribute="centerY" id="xb5-AH-M9x"/>
+                            <constraint firstItem="LGN-Ol-drO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="32" id="yeM-ZY-snm"/>
+                            <constraint firstItem="pJe-c2-kef" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="32" id="yfC-AD-HKU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageView" destination="URm-HE-MzJ" id="iYa-sy-pqg"/>
+                        <outlet property="versionField" destination="NLO-cG-MDc" id="ltr-tO-V1U"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="702"/>
         </scene>
     </scenes>
 </document>
